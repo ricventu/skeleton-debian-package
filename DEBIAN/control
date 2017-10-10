@@ -1,0 +1,9 @@
+Package: skeleton-debian
+Version: 1.0.0
+Section: skeleton
+Priority: optional
+Maintainer: Riccardo Venturini <ricventu@gmail.com>
+Architecture: all
+Depends: debconf (>= 0.2.17)
+Description: <insert up to 60 chars description>
+    <insert long description, indented with spaces>

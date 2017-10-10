@@ -1,0 +1,13 @@
+Template: skeleton-debian/password
+Type: password
+Description: Insert password:
+Description-it.UTF-8: Inserire la password:
+
+Template: skeleton-debian/progress_title
+Type: text
+Description: Very long task
+
+Template: visiox-database/progress_step
+Type: boolean
+Default: false
+Description: progress step ${step_id} ...

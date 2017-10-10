@@ -1,0 +1,12 @@
+#!/bin/bash
+
+set -e
+
+export LC_ALL=C
+
+# Source debconf library.
+. /usr/share/debconf/confmodule
+
+db_version 2.0
+
+db_purge

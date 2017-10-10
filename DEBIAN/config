@@ -1,0 +1,14 @@
+#!/bin/bash
+
+set -e
+
+# Source debconf library.
+. /usr/share/debconf/confmodule
+
+
+# debconf protocol version
+db_version 2.0
+
+# read 
+db_input high skeleton-debian/password || true
+db_go

@@ -1,0 +1,47 @@
+#!/bin/bash
+
+set -e
+
+# Source debconf library.
+. /usr/share/debconf/confmodule
+
+db_version 2.0
+
+# mysql password 
+db_get skeleton-debian/password || true
+PASSWORD=$RET
+
+#  install
+function install {
+  db_progress START 0 4 skeleton-debian/progress_title
+
+  for step in $(seq 1 4)
+  do
+    db_progress STEP 1
+
+    db_subst visiox-database/progress_step step_id $step
+    db_progress INFO visiox-database/progress_step
+
+    sleep 1
+  done
+
+  db_progress STOP
+}
+
+# upgrade
+# $1 - the installed version
+function upgrade {
+  echo upgrade from $1.
+  install
+}
+
+
+if [ "$1" = "configure" ]; then
+  if [ -z "$2" ]; then
+    install
+  else
+    upgrade $2
+  fi
+fi
+
+db_stop
